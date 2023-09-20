@@ -1,0 +1,13 @@
+.comment {
+  display: flex;
+  padding: 0 5px;
+
+  &__color {
+    height: 50px;
+    width: 50px;
+  }
+
+  &__value {
+    padding-left: 10px;
+  }
+}
