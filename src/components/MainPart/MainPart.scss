@@ -1,0 +1,16 @@
+@import "../../utils/mixins";
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  flex-grow: 1;
+  padding: 10px;
+  height: fit-content;
+
+  @include onDesktopLarge {
+    flex-direction: row;
+    align-items: start;
+  }
+}

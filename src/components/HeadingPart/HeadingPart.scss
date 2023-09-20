@@ -1,0 +1,26 @@
+@import "../../utils/mixins";
+
+.heading-container {
+  text-align: center;
+  width: 100%;
+  padding: 10px;
+  background-color: #2b2f3e;
+
+  @include onTablet {
+    max-width: 260px;
+    width: 25%;
+  }
+
+
+  h2 {
+    margin: 0;
+    color: #fff;
+    font-weight: 500;
+    font-size: 32px;
+    margin-bottom: 8px;
+  }
+
+  span {
+    color: #5b5d63;
+  }
+}
