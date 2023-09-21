@@ -1,13 +1,29 @@
 import React, { FC, useState } from "react";
 import { Button } from "../Button";
+import { useAppDispatch } from '../../store/hooks';
+import { addComment } from '../../store/itemsSlice';
+import { getId } from '../../utils/helpers';
 import "./NewCommentItem.scss";
 
 export const NewCommentItem: FC = () => {
   const [colorValue, setColorValue] = useState("#000000");
-  console.log('color =>', colorValue);
+  const [textValue, setTextValue] = useState('');
+
+  const dispatch = useAppDispatch();
+
+  
+
   const onSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
-    // e.preventDefault();
-    console.log("ADD COMMENT");
+    if (textValue) {
+      e.preventDefault();
+      dispatch(addComment({
+        id: getId(10),
+        textValue: textValue,
+        colorValue: colorValue
+      }))
+      setTextValue('')
+      setColorValue("#000000")
+    }
   };
   return (
     <div className="new-comment">
@@ -20,6 +36,8 @@ export const NewCommentItem: FC = () => {
         />
         <textarea
           className="new-comment__text-area"
+          value={textValue}
+          onChange={(e) => setTextValue(e.target.value)}
           rows={4}
           required
           placeholder="Type comment here..."
