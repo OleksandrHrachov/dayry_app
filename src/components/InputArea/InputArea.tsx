@@ -25,7 +25,7 @@ export const InputArea: FC = () => {
       <input
         className="input-area__input"
         value={value}
-        onChange={(e) => setValue(e.target.value.trim())}
+        onChange={(e) => e.target.value.trim() && setValue(e.target.value)}
         type="text"
         required
         placeholder="Type name here..."

@@ -3,7 +3,7 @@
 [DEMO LINK](https://oleksandrhrachov.github.io/dayry_app/)
 
 The project uses: React, Vite, TypeScript.\
-State manager: redux toolkit.\
+State manager: redux toolkit.
 
 ## Launch of the project:
 - clone the project locally;

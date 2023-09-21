@@ -15,7 +15,7 @@ export const loadFromLocalStorage = () => {
     return stateStr ? JSON.parse(stateStr) : initialState;
   } catch (e) {
     console.error(e);
-    return undefined;
+    return initialState;
   }
 }
 

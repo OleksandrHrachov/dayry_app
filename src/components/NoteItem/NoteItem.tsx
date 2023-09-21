@@ -15,7 +15,8 @@ export const NoteItem: FC<IProps> = ({ id, value, commentsCount }) => {
   const dispatch = useAppDispatch();
   const { selectedItem } = useAppSelector((state) => state.items);
 
-  const onDelete = () => {
+  const onDelete = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
     dispatch(removeItem(id));
   };
 

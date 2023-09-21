@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IComment, IItem, IState, IActionAddComment, IActionAddItem} from './types';
+import { IState, IActionAddComment, IActionAddItem} from './types';
 
 export const initialState: IState = {
   items: [],
@@ -19,7 +19,10 @@ const itemsSlice = createSlice({
     },
     removeItem(state, action: PayloadAction<string>) {
       const newState = state.items.filter((item) => item.id !== action.payload);
-      return { ...state, items: newState };
+      state.items = newState;
+      if (action.payload === state.selectedItem?.id) {
+        state.selectedItem = null;
+      }
     },
     addComment(state, action: PayloadAction<IActionAddComment>) {
       state.items.forEach((item) => {
@@ -42,10 +45,11 @@ const itemsSlice = createSlice({
       const selectedItem = state.items.filter(
         (item) => item.id === action.payload
       );
-      return { ...state, selectedItem: selectedItem[0] };
+      state.selectedItem = selectedItem[0];
     },
     setStore(state, action: PayloadAction<IState>) {
-      return {items: action.payload.items, selectedItem: action.payload.selectedItem}
+      state.items = action.payload.items;
+      state.selectedItem = action.payload.selectedItem;
     }
   },
 });

@@ -11,8 +11,6 @@ export const NewCommentItem: FC = () => {
 
   const dispatch = useAppDispatch();
 
-  
-
   const onSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (textValue) {
       e.preventDefault();
@@ -25,6 +23,7 @@ export const NewCommentItem: FC = () => {
       setColorValue("#000000")
     }
   };
+  
   return (
     <div className="new-comment">
       <form className="new-comment__form">
@@ -37,7 +36,7 @@ export const NewCommentItem: FC = () => {
         <textarea
           className="new-comment__text-area"
           value={textValue}
-          onChange={(e) => setTextValue(e.target.value)}
+          onChange={(e) => e.target.value.trim() && setTextValue(e.target.value)}
           rows={4}
           required
           placeholder="Type comment here..."
