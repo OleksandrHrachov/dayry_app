@@ -4,6 +4,7 @@ import { CommentsBlock } from '../CommentsBlock';
 import './MainPart.scss';
 
 export const MainPart: FC = () => {
+
   return (
     <div className="main-container">
       <ItemsBlock />

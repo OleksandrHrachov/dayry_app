@@ -1,21 +1,33 @@
 import { FC } from "react";
 import "./NoteItem.scss";
 import { Button } from "../Button";
-import classNames from 'classnames';
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { removeItem, addToSelected } from "../../store/itemsSlice";
+import classNames from "classnames";
 
 interface IProps {
   id: string;
   value: string;
   commentsCount: number;
-  isSelected: boolean;
 }
 
-export const NoteItem: FC<IProps> = ({ id, value, commentsCount, isSelected }) => {
+export const NoteItem: FC<IProps> = ({ id, value, commentsCount }) => {
+  const dispatch = useAppDispatch();
+  const { selectedItem } = useAppSelector((state) => state.items);
+
   const onDelete = () => {
-    console.log("DELETE");
+    dispatch(removeItem(id));
   };
+
+  const onSelect = () => {
+    dispatch(addToSelected(id));
+  };
+
   return (
-    <li className={classNames("item", {selectedItem: isSelected} )}>
+    <li
+      className={classNames("item", { selectedItem: id === selectedItem?.id })}
+      onClick={onSelect}
+    >
       {value}
       <span className="item__right-side">
         <span className="item__commentsCount">{commentsCount}</span>
