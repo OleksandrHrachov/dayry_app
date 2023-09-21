@@ -1,8 +1,12 @@
-# React + Vite
+# Description
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[DEMO LINK](https://oleksandrhrachov.github.io/dayry_app/)
 
-Currently, two official plugins are available:
+The project uses: React, Vite, TypeScript.\
+State manager: redux toolkit.\
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Launch of the project:
+- clone the project locally;
+- go to the `dayry_app folder` and run the `npm install`;
+- next run the `npm run dev` command;
+- follow the link that will appear in the terminal;
